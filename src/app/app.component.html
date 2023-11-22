@@ -1,0 +1,18 @@
+<div class="centered">
+  <h1>Peppa pig family</h1>
+
+  <button (click)="showGirlsOnly()">Show the girls</button>
+  <button (click)="showBoysOnly()">Show the boys</button>
+  <button (click)="showEveryone()">Show everyone</button>
+
+
+  <h3 *ngIf="toDisplay === 'everyone'">All the characters:</h3>
+  <h3 *ngIf="toDisplay === 'girls'">The girls:</h3>
+  <h3 *ngIf="toDisplay === 'boys'">The boys:</h3>
+  <div *ngFor="let character of characters"
+       [ngClass]="{'boy': character.sex === 'male', 'girl': character.sex === 'female'}"
+       class = "character">
+    <h5>{{character.name}}</h5>
+    <img [src]="character.imgUrl" [alt]="'character - ' + character.name"/>
+  </div>
+</div>
